@@ -90,24 +90,29 @@ Here’s the question you’ll be asking:
 dotenv.config();
 
 export async function generateAudioFromText(text: string) {
+  // Validate required environment variables
+  if (!process.env.ELEVEN_LABS_API_KEY) {
+    console.error("ERROR: ELEVEN_LABS_API_KEY is not defined in .env file");
+    throw new Error('ELEVEN_LABS_API_KEY environment variable is required');
+  }
 
-  console.log(process.env.ELEVEN_LABS_API_KEY)
+  if (!process.env.VOICE_ID) {
+    console.error("ERROR: VOICE_ID is not defined in .env file");
+    throw new Error('VOICE_ID environment variable is required');
+  }
+
   const client = new ElevenLabsClient({ apiKey: process.env.ELEVEN_LABS_API_KEY });
   try {
-
-    if (!process.env.VOICE_ID) {
-      console.log("voice id not defined")
-      return
-    }
     const audioStream = await client.textToSpeech.convert(process.env.VOICE_ID, {
       text,
       model_id: "eleven_multilingual_v2",
       output_format: "mp3_44100_128"
     });
-    console.log("Audio stream received.");
-    return audioStream
+    console.log("Audio stream generated successfully.");
+    return audioStream;
   } catch (error : any) {
     console.error('Error generating audio:', error.message);
+    console.error('Error details:', error.response?.data || error);
     throw new Error('Audio generation failed');
   }
 

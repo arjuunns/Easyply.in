@@ -32,8 +32,8 @@ const CodeEditor = ({
   };
 
   return (
-    <div className="bg-[#181f2a] rounded-xl shadow-lg p-0 max-w-3xl mx-auto border border-[#232c3b]">
-      <div className="flex items-center justify-between px-6 py-4 border-b border-[#232c3b]">
+    <div className="bg-card rounded-xl shadow-lg p-0 max-w-3xl mx-auto border border-border">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-border">
         <LanguageSelector language={language} onSelect={handleLanguageChange} />
       </div>
      

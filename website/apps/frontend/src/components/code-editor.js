@@ -16,7 +16,7 @@ const CodeEditor = ({ value, language, onChange, onLanguageChange, }) => {
             onChange(BOILERPLATES[lang]);
         }
     };
-    return (_jsxs("div", { className: "bg-[#181f2a] rounded-xl shadow-lg p-0 max-w-3xl mx-auto border border-[#232c3b]", children: [_jsx("div", { className: "flex items-center justify-between px-6 py-4 border-b border-[#232c3b]", children: _jsx(LanguageSelector, { language: language, onSelect: handleLanguageChange }) }), _jsx("div", { className: "rounded-b-xl overflow-hidden p-4", children: _jsx(Editor, { className: "rounded-lg", options: {
+    return (_jsxs("div", { className: "bg-card rounded-xl shadow-lg p-0 max-w-3xl mx-auto border border-border", children: [_jsx("div", { className: "flex items-center justify-between px-6 py-4 border-b border-border", children: _jsx(LanguageSelector, { language: language, onSelect: handleLanguageChange }) }), _jsx("div", { className: "rounded-b-xl overflow-hidden p-4", children: _jsx(Editor, { className: "rounded-lg", options: {
                         minimap: { enabled: false },
                         fontSize: 16,
                         fontFamily: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',

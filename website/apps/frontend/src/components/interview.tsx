@@ -28,9 +28,9 @@ export function TopPanel(props: {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-white font-medium">Technical Interview</span>
+            <span className="text-foreground font-medium">Technical Interview</span>
           </div>
-          <Badge variant="secondary" className="bg-gray-700 text-gray-300">
+          <Badge variant="secondary">
             <Clock className="w-3 h-3 mr-1" />
             {formatTime(timeElapsed)}
           </Badge>
@@ -41,14 +41,14 @@ export function TopPanel(props: {
             variant="ghost"
             size="sm"
             onClick={() => setShowChat(!showChat)}
-            className="text-gray-300 hover:text-white hover:bg-gray-700"
+            className="text-muted-foreground hover:text-foreground hover:bg-accent"
           >
             <MessageSquare className="w-4 h-4" />
           </Button>
           <Button
             variant="ghost"
             size="sm"
-            className="text-gray-300 hover:text-white hover:bg-gray-700"
+            className="text-muted-foreground hover:text-foreground hover:bg-accent"
           >
             <Settings className="w-4 h-4" />
           </Button>
@@ -79,11 +79,11 @@ export function LeftPanel() {
   };
 
   return (
-    <div className="w-1/3 bg-gray-800 flex flex-col">
+    <div className="w-1/3 bg-card flex flex-col">
       <VideoCall />
 
       {/* Controls */}
-      <div className="p-4 bg-gray-900 border-t border-gray-700">
+      <div className="p-4 bg-background border-t border-border">
         <div className="flex items-center justify-center gap-4">
           <motion.div whileTap={{ scale: 0.95 }}>
             <Button
@@ -130,7 +130,7 @@ export function LeftPanel() {
         </div>
         {/* Show listening status and recognized text */}
         <div className="mt-4 text-center">
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-muted-foreground">
             Mic: {isMuted ? "Off" : "On"} | Listening:{" "}
             {listening ? "Yes" : "No"}
           </div>
@@ -194,12 +194,12 @@ export function RightPanel({ currentQ }: { currentQ: Question }) {
 
   return (
     <>
-      <div className="flex-1 flex flex-col bg-gray-900">
+      <div className="flex-1 flex flex-col bg-background">
         {/* Question Header */}
-        <div className="bg-gray-800 border-b border-gray-700 p-4">
+        <div className="bg-card border-b border-border p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <h2 className="text-xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-foreground">
                 {currentQ?.title}
               </h2>
               <Badge
@@ -219,7 +219,6 @@ export function RightPanel({ currentQ }: { currentQ: Question }) {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-gray-600 text-gray-300 bg-transparent"
                 onClick={() => {
                   setCode(currentQ?.initialCode || "");
                   setLanguage("javascript");
@@ -236,7 +235,7 @@ export function RightPanel({ currentQ }: { currentQ: Question }) {
               </Button>
             </div>
           </div>
-          <p className="text-gray-300 text-sm leading-relaxed">
+          <p className="text-foreground text-sm leading-relaxed">
             {currentQ?.description}
           </p>
         </div>
@@ -253,27 +252,27 @@ export function RightPanel({ currentQ }: { currentQ: Question }) {
           </div>
 
           {/* Test Cases Panel */}
-          <div className="w-80 bg-gray-800 border-l border-gray-700 flex flex-col">
-            <div className="p-4 border-b border-gray-700">
-              <h3 className="font-medium text-white mb-3">Test Cases</h3>
+          <div className="w-80 bg-card border-l border-border flex flex-col">
+            <div className="p-4 border-b border-border">
+              <h3 className="font-medium text-foreground mb-3">Test Cases</h3>
               <div className="space-y-3">
                 {currentQ?.testCases?.map((testCase, index) => (
-                  <div key={index} className="bg-gray-700/50 rounded-lg p-3">
+                  <div key={index} className="bg-accent/50 rounded-lg p-3">
                     <div className="text-sm">
-                      <div className="text-gray-300 mb-1">Input:</div>
+                      <div className="text-foreground mb-1">Input:</div>
                       <code className="text-blue-400 text-xs">
                         {testCase?.input}
                       </code>
                     </div>
                     <div className="text-sm mt-2">
-                      <div className="text-gray-300 mb-1">Expected Output:</div>
+                      <div className="text-foreground mb-1">Expected Output:</div>
                       <code className="text-green-400 text-xs">
                         {testCase?.output}
                       </code>
                     </div>
                     <Button
                       size="sm"
-                      className="mt-2 bg-blue-700 hover:bg-blue-800"
+                      className="mt-2"
                       onClick={() => setStdin(testCase.input)}
                     >
                       Use as Input

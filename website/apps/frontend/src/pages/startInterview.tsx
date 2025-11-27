@@ -127,7 +127,7 @@ export default function InterviewPage() {
     {
       id: 1,
       title: "Two Sum Problem",
-      difficulty: "Easy",
+      difficulty: "Easy" as const,
       description:
         "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
       initialCode: `function twoSum(nums, target) {
@@ -144,9 +144,9 @@ export default function InterviewPage() {
   const currentQ = questions[currentQuestion]
 
   return (
-    <div className="h-screen bg-gray-900 flex flex-col overflow-hidden">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="bg-gray-800 border-b border-gray-700 px-6 py-3">
+      <div className="bg-card border-b border-border px-6 py-3">
         <TopPanel timeElapsed={timeElapsed} setShowChat={setShowChat} showChat = {showChat} />
       </div>
 
@@ -166,7 +166,7 @@ export default function InterviewPage() {
               animate={{ width: 320, opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-800 border-l border-gray-700 overflow-hidden"
+              className="bg-card border-l border-border overflow-hidden"
             >
               <ChatPanel />
             </motion.div>

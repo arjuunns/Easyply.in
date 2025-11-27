@@ -4,4 +4,4 @@ import "./index.css";
 import App from "./App";
 import { ClerkProvider } from "@clerk/clerk-react";
 const clerkPubKey = "pk_test_ZGVjZW50LXBpZ2xldC03Ni5jbGVyay5hY2NvdW50cy5kZXYk";
-createRoot(document.getElementById("root")).render(_jsx(ClerkProvider, { publishableKey: clerkPubKey, frontendApi: "pk_test_ZGVjZW50LXBpZ2xldC03Ni5jbGVyay5hY2NvdW50cy5kZXYk", navigate: (to) => window.history.pushState(null, "", to), children: _jsx(App, {}) }));
+createRoot(document.getElementById("root")).render(_jsx(ClerkProvider, { publishableKey: clerkPubKey, children: _jsx(App, {}) }));

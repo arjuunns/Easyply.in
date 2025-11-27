@@ -47,7 +47,7 @@ export default function VideoCall() {
     <div className="flex-1 p-4 space-y-4">
       {/* AI Interviewer */}
       <motion.div
-        className="relative bg-gray-700 rounded-lg overflow-hidden aspect-video"
+        className="relative bg-accent rounded-lg overflow-hidden aspect-video"
         animate={{
           boxShadow: isAISpeaking ? "0 0 20px rgba(59, 130, 246, 0.5)" : "none",
         }}
@@ -70,22 +70,22 @@ export default function VideoCall() {
 
         {/* AI Name Tag */}
         <div className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-1 flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${isAISpeaking ? "bg-green-400 animate-pulse" : "bg-gray-400"}`}></div>
+          <div className={`w-2 h-2 rounded-full ${isAISpeaking ? "bg-green-400 animate-pulse" : "bg-muted-foreground"}`}></div>
           <span className="text-white text-sm font-medium">AI Interviewer</span>
           {isAISpeaking && <Mic className="w-3 h-3 text-green-400" />}
         </div>
       </motion.div>
 
       {/* User Video */}
-      <div className="relative bg-gray-700 rounded-lg overflow-hidden aspect-video">
+      <div className="relative bg-accent rounded-lg overflow-hidden aspect-video">
         {/* If video is off, do not show the video element */}
         {!isVideoOff && videosuccess ? (
           <video ref={videoRef} autoPlay muted playsInline className="w-full h-full object-cover" />
         ) : (
             <div className='w-full h-full object-cover'>
-          <div className="absolute inset-0 bg-gray-600 flex items-center justify-center">
+          <div className="absolute inset-0 bg-accent flex items-center justify-center">
             <Avatar className="w-16 h-16">
-              <AvatarFallback className="bg-gray-500 text-white">
+              <AvatarFallback className="bg-muted text-foreground">
                 <User className="w-8 h-8" />
               </AvatarFallback>
             </Avatar>
@@ -101,13 +101,13 @@ export default function VideoCall() {
       </div>
 
       {/* Interview Progress */}
-      <div className="bg-gray-700/50 rounded-lg p-3">
+      <div className="bg-accent/50 rounded-lg p-3">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-300">Question 1 of 3</span>
-          <span className="text-blue-400">Technical Round</span>
+          <span className="text-muted-foreground">Question 1 of 3</span>
+          <span className="text-primary">Technical Round</span>
         </div>
-        <div className="w-full bg-gray-600 rounded-full h-2 mt-2">
-          <div className="bg-blue-500 h-2 rounded-full w-1/3 transition-all duration-500"></div>
+        <div className="w-full bg-muted rounded-full h-2 mt-2">
+          <div className="bg-primary h-2 rounded-full w-1/3 transition-all duration-500"></div>
         </div>
       </div>
     </div>

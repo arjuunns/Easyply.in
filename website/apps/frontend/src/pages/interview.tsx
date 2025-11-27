@@ -146,7 +146,7 @@ export default function InterviewPracticePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen w-full bg-background">
       {/* Background Pattern */}
       <div className="relative z-10 container mx-auto px-4 py-12">
         <motion.div
@@ -157,14 +157,14 @@ export default function InterviewPracticePage() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center space-y-4">
-            <div className="inline-flex items-centser gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full border border-purple-500/30 mb-6">
-              <Award className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300 font-medium">AI-Powered Practice</span>
+            <div className="inline-flex items-centser gap-2 px-4 py-2 bg-primary/20 rounded-full border border-primary/30 mb-6">
+              <Award className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">AI-Powered Practice</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground">
               Master Your Interview Skills
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Practice with our advanced AI interviewer across multiple domains. Get detailed
               feedback and improve your interview performance with personalized insights.
             </p>
@@ -174,26 +174,26 @@ export default function InterviewPracticePage() {
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Setup Interview Card */}
             <motion.div variants={itemVariants}>
-              <Card className="bg-gray-800/50 border-gray-700/50 backdrop-blur-sm">
+              <Card className="bg-card border-border backdrop-blur-sm">
                 <CardHeader className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
-                      <Brain className="w-5 h-5 text-white" />
+                    <div className="p-2 bg-primary rounded-lg">
+                      <Brain className="w-5 h-5 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-2xl text-white">Setup Your Interview</CardTitle>
+                    <CardTitle className="text-2xl text-foreground">Setup Your Interview</CardTitle>
                   </div>
-                  <CardDescription className="text-gray-400">
+                  <CardDescription className="text-muted-foreground">
                     Customize your practice session based on your target role
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Interview Topic</label>
+                    <label className="text-sm font-medium text-foreground">Interview Topic</label>
                     <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-                      <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
+                      <SelectTrigger className="bg-input border-border text-foreground">
                         <SelectValue placeholder="Select a topic" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-gray-700">
+                      <SelectContent className="bg-card border-border">
                         <SelectItem value="web-dev">Web Development</SelectItem>
                         <SelectItem value="data-science">Data Science</SelectItem>
                         <SelectItem value="mobile-dev">Mobile Development</SelectItem>
@@ -203,12 +203,12 @@ export default function InterviewPracticePage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Difficulty Level</label>
+                    <label className="text-sm font-medium text-foreground">Difficulty Level</label>
                     <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-                      <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
+                      <SelectTrigger className="bg-input border-border text-foreground">
                         <SelectValue placeholder="Select difficulty" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-gray-700">
+                      <SelectContent className="bg-card border-border">
                         <SelectItem value="beginner">Beginner</SelectItem>
                         <SelectItem value="intermediate">Intermediate</SelectItem>
                         <SelectItem value="advanced">Advanced</SelectItem>
@@ -218,12 +218,12 @@ export default function InterviewPracticePage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Interview Type</label>
+                    <label className="text-sm font-medium text-foreground">Interview Type</label>
                     <Select value={selectedType} onValueChange={setSelectedType}>
-                      <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
+                      <SelectTrigger className="bg-input border-border text-foreground">
                         <SelectValue placeholder="Select interview type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-gray-700">
+                      <SelectContent className="bg-card border-border">
                         <SelectItem value="technical">Technical</SelectItem>
                         <SelectItem value="behavioral">Behavioral</SelectItem>
                         <SelectItem value="mixed">Mixed</SelectItem>
@@ -236,7 +236,7 @@ export default function InterviewPracticePage() {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Button
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 text-lg"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 text-lg"
                       size="lg"
                       onClick={() => navigate('/startinterview')}
                     >
@@ -244,7 +244,7 @@ export default function InterviewPracticePage() {
                     </Button>
                   </motion.div>
 
-                  <p className="text-xs text-gray-500 text-center">
+                  <p className="text-xs text-muted-foreground text-center">
                     First interview is free. Additional interviews require premium.
                   </p>
                 </CardContent>
@@ -253,7 +253,7 @@ export default function InterviewPracticePage() {
 
             {/* Interview Formats */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <h2 className="text-2xl font-bold text-white mb-6">Interview Formats</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Interview Formats</h2>
               <div className="space-y-4">
                 {interviewFormats.map((format, index) => (
                   <motion.div
@@ -264,7 +264,7 @@ export default function InterviewPracticePage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Card className="bg-gray-800/50 border-gray-700/50 backdrop-blur-sm hover:border-gray-600/50 transition-all duration-300">
+                    <Card className="bg-card border-border backdrop-blur-sm hover:border-primary/50 transition-all duration-300">
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
                           <div className={`p-3 bg-gradient-to-r ${format.color} rounded-xl`}>
@@ -272,21 +272,20 @@ export default function InterviewPracticePage() {
                           </div>
                           <div className="flex-1 space-y-3">
                             <div className="flex items-center justify-between">
-                              <h3 className="text-xl font-semibold text-white">{format.title}</h3>
-                              <div className="flex items-center gap-1 text-gray-400">
+                              <h3 className="text-xl font-semibold text-foreground">{format.title}</h3>
+                              <div className="flex items-center gap-1 text-muted-foreground">
                                 <Clock className="w-4 h-4" />
                                 <span className="text-sm">{format.duration}</span>
                               </div>
                             </div>
-                            <p className="text-gray-400">{format.description}</p>
+                            <p className="text-muted-foreground">{format.description}</p>
                             <div className="space-y-2">
-                              <p className="text-sm font-medium text-gray-300">What's included:</p>
+                              <p className="text-sm font-medium text-foreground">What's included:</p>
                               <div className="flex flex-wrap gap-2">
                                 {format.includes.map((item) => (
                                   <Badge
                                     key={item}
                                     variant="secondary"
-                                    className="bg-gray-700/50 text-gray-300 hover:bg-gray-600/50"
                                   >
                                     {item}
                                   </Badge>
@@ -295,7 +294,7 @@ export default function InterviewPracticePage() {
                             </div>
                             <div className="pt-2">
                               <Button
-                                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 text-md mt-2"
+                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 text-md mt-2"
                                 size="lg"
                                 onClick={() => navigate('/startinterview')}
                               >
@@ -314,13 +313,13 @@ export default function InterviewPracticePage() {
 
           {/* Performance Section */}
           <motion.div variants={itemVariants}>
-            <Card className="bg-gray-800/50 border-gray-700/50 backdrop-blur-sm">
+            <Card className="bg-card border-border backdrop-blur-sm">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg">
-                    <TrendingUp className="w-5 h-5 text-white" />
+                  <div className="p-2 bg-primary rounded-lg">
+                    <TrendingUp className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-2xl text-white">Your Performance</CardTitle>
+                  <CardTitle className="text-2xl text-foreground">Your Performance</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -330,15 +329,15 @@ export default function InterviewPracticePage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center justify-between p-4 bg-gray-700/30 rounded-lg border border-gray-600/30"
+                    className="flex items-center justify-between p-4 bg-accent/30 rounded-lg border border-border"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="p-2 bg-gray-600/50 rounded-lg">
-                        <Code className="w-5 h-5 text-gray-300" />
+                      <div className="p-2 bg-muted rounded-lg">
+                        <Code className="w-5 h-5 text-foreground" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white">{item.topic}</h4>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <h4 className="font-semibold text-foreground">{item.topic}</h4>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <span>{item.difficulty}</span>
                           <span>•</span>
                           <div className="flex items-center gap-1">
